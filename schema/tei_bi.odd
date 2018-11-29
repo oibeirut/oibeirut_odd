@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Bibliotheca Islamica: Schema</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+          <!-- if I understand ODD chaining correctly, this will generate a copy of the tei_periodical.odd -->
+         <schemaSpec ident="tei_bi" source="tei_periodical.compiled.odd" start="TEI">
+             <moduleRef key="core"/>
+                <moduleRef key="tei"/>
+                <moduleRef key="header"/>
+                <moduleRef  key="textstructure"/>
+                <moduleRef key="tagdocs"/>
+                <!-- many elements should be removed from namesdates: sex socecStatus -->
+                <moduleRef key="namesdates"/>
+                <moduleRef key="linking"/>
+                <moduleRef key="figures"/>
+                <moduleRef key="transcr"/>
+                <!-- corpus provides profileDesc, particDesc, settingDesc -->
+                <moduleRef key="corpus"/>
+         </schemaSpec>
+      </body>
+  </text>
+</TEI>
